@@ -1,0 +1,58 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+body {
+  min-height: 100%;
+  font-family: "Muli", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  line-height: 1.6;
+}
+#app {
+  height: 100%;
+}
+
+textarea {
+  resize: none;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+button {
+  cursor: pointer;
+}
+button:focus {
+  outline: 0;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+.is-active {
+  font-weight: bold;
+}
+%flex {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+.centered-horizontally {
+  @extend %flex;
+  flex-direction: row;
+}
+.centered-vertically {
+  @extend %flex;
+  flex-direction: column;
+}

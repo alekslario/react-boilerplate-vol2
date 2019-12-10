@@ -1,0 +1,13 @@
+.ingredient-list > li {
+  border: $border-thin $light-grey solid;
+  border-radius: 0.5rem;
+}
+.ingredient-list > li > div {
+  display: inline-block;
+}
+.ingredient-list > li > div:nth-child(2) {
+  float: right;
+}
+.ingredient-list > li {
+  padding: 0.6rem 3rem 0.6rem 3rem;
+}

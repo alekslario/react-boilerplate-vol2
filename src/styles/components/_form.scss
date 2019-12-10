@@ -1,0 +1,301 @@
+%label-or-tag {
+  position: absolute;
+  font-size: 1.3rem;
+  font-weight: 300;
+  background: white;
+  line-height: 1;
+  padding: 0 0.3rem 0 0.3rem;
+}
+%input {
+  border: none;
+  outline: none;
+  display: inline-block;
+  font-size: 1.6rem;
+  width: 100%;
+  height: 100%;
+  color: var(--color-main-text);
+}
+%label {
+  @extend %label-or-tag;
+  top: -0.7rem;
+  left: 1.5rem;
+  color: var(--color-side-text);
+  pointer-events: none;
+  transition: color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms,
+    transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+}
+.form_element-wrapper {
+  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  @media (max-width: 576px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.my-input {
+  position: relative;
+  height: 5.5rem;
+  width: 12rem;
+  margin: 1rem;
+  color: var(--color-side-text);
+  label {
+    @extend %label;
+  }
+  span {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.6rem;
+    padding-right: 1rem;
+    width: 3.5rem;
+  }
+  input {
+    @extend %input;
+    text-align: center;
+  }
+  &:hover > div {
+    border-color: var(--color-main-text);
+  }
+  &:focus-within {
+    label {
+      color: var(--color-attention-secondary);
+    }
+    .my-input_wrapper {
+      border-color: var(--color-attention-secondary);
+    }
+  }
+}
+.my-input_wrapper {
+  justify-content: center;
+  border-radius: 0.4rem;
+  display: inline-flex;
+  flex-direction: row;
+  border: 0.1rem var(--color-background-secondary) solid;
+  height: 100%;
+  width: 100%;
+  padding: 1rem 1.7rem;
+}
+.dropbtn::after {
+  content: "\25BC";
+  position: absolute;
+  top: 2rem;
+  left: 3.2rem;
+  font-size: 1rem;
+  color: var(--color-main-text);
+  widows: 2rem;
+}
+.dropdown {
+  outline: none;
+  padding: 1rem 1rem 1rem 1.7rem;
+  &:focus {
+    .dropdown-content {
+      display: block;
+    }
+    .dropbtn::after {
+      content: "\25B2";
+      color: var(--color-attention-secondary);
+    }
+  }
+  &:hover .dropbtn::after {
+    color: var(--color-attention-secondary);
+  }
+}
+.dropdown-content {
+  display: none;
+  left: 0;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 1px 1px 6px var(--color-gamma);
+  border: 0.1rem #dfe3eb solid;
+  z-index: 1;
+  hr {
+    margin-top: unset;
+    margin-bottom: unset;
+  }
+  li {
+    padding: 1.2rem 1.6rem;
+    display: block;
+    cursor: pointer;
+  }
+  li:hover {
+    background-color: var(--color-beta);
+  }
+  &:active {
+    display: none;
+  }
+}
+.dropbtn {
+  border: none;
+  cursor: pointer;
+  height: 100%;
+}
+
+.my-input-barcode,
+.my-input-name {
+  width: auto;
+}
+#my-input-serving {
+  input {
+    padding: 1rem 1.7rem 1rem 0;
+    border-radius: 0.4rem;
+  }
+  span {
+    padding: 0;
+    width: 2rem;
+  }
+  & > div {
+    padding: 0;
+  }
+}
+///below scss for react-tagsinput lib
+.react-tagsinput {
+  font-size: 1.6rem;
+  background-color: white;
+  border-radius: 0.4rem;
+  border: 0.1rem var(--color-background-secondary) solid;
+  overflow: hidden;
+  padding-left: 1.2rem;
+  padding-top: 0.85rem;
+  &:hover {
+    border-color: var(--color-main-text);
+  }
+  &:focus-within {
+    border-color: var(--color-attention-secondary);
+    .react-tagsinput-tag {
+      border-color: var(--color-attention-secondary);
+      color: var(--color-main-text);
+    }
+  }
+}
+
+// .react-tagsinput--focused {
+//   border-color: var(--color-attention-secondary);
+// }
+
+.react-tagsinput-tag {
+  font-size: 1.4rem;
+  background-color: white;
+  border-radius: 0.4rem;
+  border: 0.1rem var(--color-background-secondary) solid;
+  color: var(--color-side-text);
+  font-weight: 300;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  margin-right: 0.5rem;
+  padding: 0.5rem;
+  &:hover {
+    border-color: var(--color-main-text);
+    color: var(--color-main-text);
+  }
+}
+
+.react-tagsinput-remove {
+  cursor: pointer;
+  font-weight: bold;
+}
+// aka react-tagsinput-remove. this baked in selector overrrides the class
+a:not([href]):not([tabindex]):hover {
+  color: var(--color-attention-secondary);
+}
+.react-tagsinput-tag a::before {
+  content: " ×";
+}
+
+.react-tagsinput-input {
+  color: var(--color-main-text);
+  font: inherit;
+  background: transparent;
+  border: 0;
+  margin-bottom: 0.75rem;
+  margin-top: 0.01rem;
+  outline: none;
+  padding: 0.5rem;
+  width: 10rem;
+}
+.my-input-ingredients {
+  position: relative;
+  height: max-content;
+  margin: 1rem;
+  label {
+    @extend %label;
+    top: -0.8rem;
+  }
+  &:focus-within label {
+    color: var(--color-attention-secondary);
+  }
+  &:hover .my-input-ingredients_clear {
+    opacity: 1;
+  }
+}
+.my-input-ingredients_clear {
+  position: absolute;
+  right: 0;
+  font-size: 1.2rem;
+  color: #4c84ff;
+  top: -1.8rem;
+  cursor: pointer;
+  font-weight: bold;
+  opacity: 0;
+  transition: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  &::after {
+    content: attr(data-label);
+    color: #4c84ff;
+    position: absolute;
+    top: -0.3rem;
+    right: -0.6rem;
+    opacity: 0;
+  }
+}
+@keyframes moveup {
+  0% {
+    opacity: 1;
+    top: -0.3rem;
+  }
+  100% {
+    opacity: 0.001;
+    top: -2rem;
+  }
+}
+.moveup {
+  &::after {
+    animation: moveup 0.5s ease forwards;
+  }
+}
+.my-input-description {
+  width: auto;
+  height: 8rem;
+  textarea {
+    padding: 0;
+    @extend %input;
+    text-align: left;
+  }
+}
+.form_button {
+  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0px 8px 10px 1px rgba(var(--color-attention-main), 0.14),
+    0px 3px 14px 2px rgba(var(--color-attention-main), 0.12);
+  padding: 8px 16px;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border: none;
+  margin: 1rem 1rem 0 1rem;
+  width: calc(100% - 2rem);
+  font: inherit;
+  border-radius: 0.4rem;
+  color: white;
+  background-color: rgba(#4c84ff, 0.9);
+  &:hover {
+    background-color: var(--color-attention-secondary);
+  }
+  &:active {
+    background-color: var(--color-attention-main);
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),
+      0px 2px 2px 0px rgba(var(--color-attention-main), 0.14),
+      0px 3px 1px -2px rgba(var(--color-attention-main), 0.12);
+  }
+}

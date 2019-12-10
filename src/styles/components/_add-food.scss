@@ -1,0 +1,10 @@
+.add-food_svg-parent {
+  width: 10rem;
+  height: 5rem;
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  svg {
+    flex-grow: 1;
+  }
+}
